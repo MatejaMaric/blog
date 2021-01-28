@@ -3,7 +3,7 @@
 <h3>Posts</h3>
 <ul>
   {{ range .Pages }}
-  <li>{{ .Date.Format "2 Jan 2006" }} - <a href="{{ .URL }}">{{ .Title }}</a></li>
+  <li>{{ .Date.Format "2 Jan 2006" }} - <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
   {{ end }}
 </ul>
 {{ end }}

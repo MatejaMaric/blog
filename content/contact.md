@@ -3,7 +3,7 @@ title: "Mateja Maric's Contact Page"
 draft: false
 ---
 
-You can send me an e-mail at: <a href="mailto:mail@matejamaric.com">mail@matejamaric.com</a>
+You can send me an e-mail at: mail@matejamaric.com
 
 <b>Please, check your spam folder!</b> 
 <br>Sometimes big e-mail providers put e-mail from smaller domains in spam folder, Microsoft is especially notorious for this practice.
