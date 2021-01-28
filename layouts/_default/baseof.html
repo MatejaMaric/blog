@@ -19,11 +19,11 @@
 <body>
   <nav>
     <div class="mm">Mateja Maric</div>
-    <a href="/" class="active">Home</a>
-    <a href="/blog/">Blog</a>
+    <a class="{{ if eq .URL `/`}}active{{ end }}" href="/">Home</a>
+    <a class="{{ if eq .URL `/blog/`}}active{{ end }}" href="/blog/">Blog</a>
     <a href="https://github.com/MatejaMaric">GitHub</a>
     <a href="https://git.matejamaric.com">Git server</a>
-    <a href="/contact/">Contact</a>
+    <a class="{{ if eq .URL `/contact/`}}active{{ end }}" href="/contact/">Contact</a>
   </nav>
   <main>
     {{ block "main" . }}{{ end }}
