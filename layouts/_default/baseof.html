@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="yandex-xverification" content="fc9dd63070a12909">
+  <meta charset="UTF-8" />
+  <meta author="Mateja Maric" />
+
+  <!--<meta name="description"-->
+  <!--content="I am Mateja Maric and this is my personal web site. I am a student from Belgrade, Serbia. I am primarily interested in Unix-like operating systems and free(as in freedom) software.">-->
+  <!--<meta name="keywords" content="mateja, maric, homepage, site, blog, contact">-->
+  <!--<link rel="canonical" href="https://matejamaric.com" />-->
+
+  <meta name="viewport" content="width=device-width initial-scale=1.0" />
+  <link href="/style.css" rel="stylesheet" type="text/css" />
+  <title>{{ .Title }}</title>
+</head>
+
+<body>
+  <nav>
+    <div class="mm">Mateja Maric</div>
+    <a href="/" class="active">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://github.com/MatejaMaric">GitHub</a>
+    <a href="https://git.matejamaric.com">Git server</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+/* Most people have Google Fonts preloaded in their browser */
+.monospace {
+    font-family: Consolas, Monaco, monospace;
+}
+.sans-serif {
+    font-family: "Noto Sans", sans-serif;
+}
+.serif {
+    font-family: "Noto Serif", Georgia, Times, serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1.4em;
+    line-height: 1.6em;
+    font-family: "Noto Serif", Georgia, Times, serif;
+
+    color: #444;
+    background-color: #EEE;
+}
+nav {
+    height: 100%;
+    width: 16em;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+}
+.mm {
+    font-size: 4em;
+    line-height: 1em;
+    color: #EEE;
+    padding: 0.3em;
+    font-weight: bold;
+}
+nav a {
+    display: block;
+    color: #EEE;
+    text-decoration: none;
+    padding: 0 1.3em;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+nav a.active {
+    font-weight: bold;
+}
+main {
+    margin: 0;
+    margin-left: 16em;
+    padding: 1em;
+    padding-left: 1.6em;
+    box-sizing: border-box;
+}
+
+h1,h2,h3 {
+    line-height: 1.2em;
+}
+a {
+	color: #07A;
+	/* wrap long text and urls */
+	white-space: pre; /* CSS 2.0 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	white-space: pre-line; /* CSS 3.0 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	white-space: -moz-pre-wrap; /* Mozilla */
+	word-wrap: break-word; /* IE 5+ */
+}
+
+/* Styling for blog elements */
+.note {
+    border-left: 5px solid yellow;
+    background-color:#eeeeb4;
+}
+.alert {
+    border-left: 5px solid red;
+    background-color:#edd;
+}
+.dir_snippet {
+    padding: 3px 3px 3px 10px;
+    border-left: 5px solid #2196F3;
+    background-color:#dee;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.875em;
+
+    border-bottom: #2196F3 1px dashed;
+}
+code {
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.8em;
+/*    background-color:#dee; */
+    background-color:#ddd;
+
+    /* padding: 0.5em; */
+    margin: 0;
+}
+pre {
+    background-color:#ddd;
+/*    background-color:#dee;*/
+/*    border-left: 5px solid #2196F3;*/
+    border-left: 5px solid #111;
+    display: block;
+    overflow-x: auto;
+    overflow-y: hidden;
+    line-height: 1.4em;
+    padding: 0.5em;
+}
+
+/* Media queries */
+@media only screen and (max-width: 800px) {
+    body {
+        font-size: 1em;
+    }
+    nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+
+        text-align: center;
+        padding-bottom: 1em;
+    }
+    .mm {
+        padding-bottom: 0.1em;
+        line-height: 1.2em;
+    }
+    nav a {
+        text-align: center;
+        padding: 0.3em;
+        font-size: 1.2em;
+    }
+    main {
+        margin-left: 0;
+        font-size: 1em;
+    }
+    code {
+        font-size: 0.875em;
+    }
+}
