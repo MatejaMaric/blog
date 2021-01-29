@@ -1,7 +1,19 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+<div itemscope itemtype="http://schema.org/Article">
+  <h1 itemprop="headline">{{ .Title }}</h1>
 
-<em>{{ .Date.Format "2 Jan 2006" }}</em>
+  <em>
+    Published:
+    <time itemprop="dateCreated" datetime="{{ .Date.Format `2006-01-02` }}">{{ .Date.Format "2 Jan 2006" }}</time>
+    {{ if not (eq .Lastmod .Date) }}
+    <br>Modified:
+    <time itemprop="dateModified"
+      datetime="{{ .Lastmod.Format `2006-01-02` }}">{{ .Lastmod.Format "2 Jan 2006" }}</time>
+    {{ end }}
+  </em>
 
-{{ .Content }}
+  <div itemprop="articleBody">
+    {{ .Content }}
+  </div>
+</div>
 {{ end }}
