@@ -6,9 +6,21 @@
   <meta charset="UTF-8" />
   <meta author="Mateja Maric" />
 
-  <!--<meta name="description"-->
-  <!--content="I am Mateja Maric and this is my personal web site. I am a student from Belgrade, Serbia. I am primarily interested in Unix-like operating systems and free(as in freedom) software.">-->
-  <!--<meta name="keywords" content="mateja, maric, homepage, site, blog, contact">-->
+  {{ if .Description }}
+  <meta name="description" content="{{ .Description }}">
+  {{ end }}
+
+  {{ if .Keywords }}
+  <meta name="keywords" content="{{ .Keywords }}">
+  {{ end }}
+
+  {{ if .PublishDate }}
+  <meta property="article:published_time" content="{{ .PublishDate }}" />
+  {{ end }}
+
+  {{ if .Lastmod }}
+  <meta property="article:modified_time" content="{{ .Lastmod }}" />
+  {{ end }}
 
   <link rel="canonical" href="{{ .Permalink }}" />
   <meta name="viewport" content="width=device-width initial-scale=1.0" />
