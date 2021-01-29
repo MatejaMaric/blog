@@ -1,5 +1,6 @@
 ---
 title: "Mateja Maric's Homepage"
+description: "I am Mateja Maric and this is my personal web site. I am a student from Belgrade, Serbia. I am primarily interested in Unix-like operating systems and free(as in freedom) software."
 draft: false
 ---
 

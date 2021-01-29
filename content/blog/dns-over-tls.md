@@ -1,6 +1,8 @@
 ---
 title: "DNS over TLS on Arch Linux"
 date: 2020-08-20
+lastmod: 2020-08-20
+description: "In this guide I will show you how to set up DNS over TLS on Arch Linux using systemd-resolved."
 slug: "dns-over-tls"
 draft: false
 ---

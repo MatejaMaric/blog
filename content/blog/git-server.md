@@ -1,6 +1,8 @@
 ---
 title: "Set up your own Smart HTTP Git Server with Gitolite, Cgit and Apache"
 date: 2020-08-10
+lastmod: 2020-08-10
+description: "This guide is for people want to setup their own git server but don’t want something as big as GitLab or Gitea, and don’t want something overly simple like bare git repository over SSH."
 slug: "git-server"
 draft: false
 ---

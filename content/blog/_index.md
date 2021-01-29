@@ -1,5 +1,6 @@
 ---
 title: "Mateja Maric's Blog"
+description: "This is my personal blog where I occasionally post technology related stuff."
 draft: false
 ---
 
