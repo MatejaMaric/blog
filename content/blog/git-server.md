@@ -263,7 +263,8 @@ You can just append this to your `httpd-vhosts-le-ssl.conf` file, you should of 
 Don't forget to restart Apache for changes to take effect!
 That's all, hope you like your new git server!
 
-If you found any mistakes, or that something is outdated, badly explained or you have something to add, feel free to [contact me](/contact/).
+If you found any mistakes, or that something is outdated, badly explained or you have something to add,
+feel free to [contact me](/contact/) or contribute to [this site's repository](https://github.com/MatejaMaric/blog).
 
 ## Resources
 - <https://wiki.archlinux.org/index.php/Git_server>

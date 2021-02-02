@@ -42,4 +42,5 @@ This is how your `/etc/NetworkManager/NetworkManger.conf` should look like:
 
 **You will probably need to restart your computer for changes to take effect.**
 
-If you found any mistakes or that something is outdated, please [contact me](/contact/).
+If you found any mistakes or that something is outdated, please
+feel free to [contact me](/contact/) or contribute to [this site's repository](https://github.com/MatejaMaric/blog).
