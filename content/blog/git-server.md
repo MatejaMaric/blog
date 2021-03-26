@@ -1,6 +1,8 @@
 ---
 title: "Set up your own Smart HTTP Git Server with Gitolite, Cgit and Apache"
 date: 2020-08-10
+lastmod: 2020-08-10
+description: "This guide is for people want to setup their own git server but don’t want something as big as GitLab or Gitea, and don’t want something overly simple like bare git repository over SSH."
 slug: "git-server"
 draft: false
 ---
@@ -261,7 +263,8 @@ You can just append this to your `httpd-vhosts-le-ssl.conf` file, you should of 
 Don't forget to restart Apache for changes to take effect!
 That's all, hope you like your new git server!
 
-If you found any mistakes, or that something is outdated, badly explained or you have something to add, feel free to [contact me](/contact/).
+If you found any mistakes, or that something is outdated, badly explained or you have something to add,
+feel free to [contact me](/contact/) or contribute to [this site's repository](https://github.com/MatejaMaric/blog).
 
 ## Resources
 - <https://wiki.archlinux.org/index.php/Git_server>
