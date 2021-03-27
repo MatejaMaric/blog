@@ -12,6 +12,9 @@
   <meta name="viewport" content="width=device-width initial-scale=1.0" />
   <link href="/style.css" rel="stylesheet" type="text/css" />
   <title>{{ .Title }}</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Noto+Sans&family=Noto+Serif&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -19,9 +22,15 @@
     <div class="mm">Mateja Maric</div>
     <a {{ if eq .RelPermalink "/" }} class="active" {{ end }} href="/">Home</a>
     <a {{ if eq .RelPermalink "/blog/" }} class="active" {{ end }} href="/blog/">Blog</a>
-    <a target="_blank" href="https://github.com/MatejaMaric">GitHub</a>
-    <a target="_blank" href="https://git.matejamaric.com">Git server</a>
     <a {{ if eq .RelPermalink "/contact/" }} class="active" {{ end }} href="/contact/">Contact</a>
+    <div class="icons">
+      <a target="_blank" href="https://github.com/MatejaMaric" title="My GitHub Profile."><img src="/github.svg"></a>
+      <a target="_blank" href="https://git.matejamaric.com" title="My Personal Git Server."><img src="/git.svg"></a>
+      <a href="mailto:mail@matejamaric.com" title="Email me!"><img src="/envelope.svg"></a>
+      <!--<a href="#" title="My Twitter Profile."><img src="/twitter.svg"></a>-->
+      <!--<a href="#" title="My Mastodon Profile."><img src="/mastodon.svg"></a>-->
+      <!--<a href="#" title="My Linkedin Profile."><img src="/linkedin.svg"></a>-->
+    </div>
   </nav>
   <main>
     {{ block "main" . }}{{ end }}

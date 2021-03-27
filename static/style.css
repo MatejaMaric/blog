@@ -1,6 +1,6 @@
 /* Most people have Google Fonts preloaded in their browser */
 .monospace {
-    font-family: Consolas, Monaco, monospace;
+    font-family: "Inconsolata", monospace;
 }
 .sans-serif {
     font-family: "Noto Sans", sans-serif;
@@ -48,6 +48,14 @@ nav a:hover {
 }
 nav a.active {
     font-weight: bold;
+}
+nav div.icons {
+    padding: 0.3em 1.3em;
+}
+nav div.icons a {
+    float: left;
+    padding: 0;
+    margin-right: 0.5em;
 }
 main {
     margin: 0;
@@ -132,6 +140,10 @@ pre {
         text-align: center;
         padding: 0.3em;
         font-size: 1.2em;
+    }
+    nav div.icons {
+        margin-top: 0.5em;
+        display: inline-block;
     }
     main {
         margin-left: 0;
