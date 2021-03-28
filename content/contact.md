@@ -1,5 +1,5 @@
 ---
-title: "Mateja Maric's Contact Page"
+title: "Mateja Marić's Contact Page"
 description: "Here you can find my contact information such as email and GPG key if you want to use it."
 draft: false
 ---

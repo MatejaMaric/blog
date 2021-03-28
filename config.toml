@@ -1,6 +1,6 @@
 baseURL = "https://matejamaric.com/"
 languageCode = "en"
-title = "Mateja Maric's Homepage"
+title = "Mateja Marić's Homepage"
 # Disable default taxonomies
 disableKinds = ["taxonomy", "term"]
 # Enable inline HTML
