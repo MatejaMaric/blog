@@ -50,12 +50,12 @@ nav a.active {
     font-weight: bold;
 }
 nav div.icons {
-    padding: 0.3em 1.3em;
+    padding: 0.3em 1.0em;
 }
 nav div.icons a {
     float: left;
     padding: 0;
-    margin-right: 0.5em;
+    margin: 0 0.3em;
 }
 main {
     margin: 0;
