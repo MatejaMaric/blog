@@ -1,155 +1,133 @@
-/* Most people have Google Fonts preloaded in their browser */
+/* Fonts */
 .monospace {
-    font-family: "Inconsolata", monospace;
+  font-family: "Inconsolata", monospace;
 }
 .sans-serif {
-    font-family: "Noto Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 .serif {
-    font-family: "Noto Serif", Georgia, Times, serif;
+  font-family: "Noto Serif", Georgia, Times, serif;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-size: 1.4em;
-    line-height: 1.6em;
-    font-family: "Noto Serif", Georgia, Times, serif;
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.4rem;
+  line-height: 1.6em;
+  font-family: "Noto Serif", Georgia, Times, serif;
 
-    color: #444;
-    background-color: #EEE;
+  color: #444;
+  background-color: white;
 }
+
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+/* Nav styles */
 nav {
-    height: 100%;
-    width: 16em;
-    box-sizing: border-box;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  max-width: 70rem;
+  margin: 0 auto 3rem;
 }
-.mm {
-    font-size: 4em;
+
+/* Nav Text */
+nav .name {
+    font-size: 3.3rem;
     line-height: 1em;
-    color: #EEE;
-    padding: 0.3em;
     font-weight: bold;
 }
-nav a {
-    display: block;
-    color: #EEE;
-    text-decoration: none;
-    padding: 0 1.3em;
+
+/* Nav Icons */
+nav .icons {
+  display: flex;
+  align-items: center;
+  margin: 0 auto 0 1rem;
 }
-nav a:hover {
+
+nav .icons a {
+  display: block;
+  margin: 0 0.5rem;
+}
+
+/* Nav Links */
+nav .links {
+  display: flex;
+  align-items: center;
+}
+
+nav .links a {
+    display: block;
+    color: #444;
+    text-decoration: none;
+    padding: 0 1rem;
+}
+
+nav .links a:hover {
     text-decoration: underline;
 }
-nav a.active {
+
+nav .links a.active {
     font-weight: bold;
 }
-nav div.icons {
-    padding: 0.3em 1.0em;
-}
-nav div.icons a {
-    float: left;
-    padding: 0;
-    margin: 0 0.3em;
-}
-main {
-    margin: 0;
-    margin-left: 16em;
-    padding: 1em;
-    padding-left: 1.6em;
-    box-sizing: border-box;
+
+@media only screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 2rem;
+  }
+  nav .name {
+    text-align: center;
+  }
+  nav .icons {
+    margin: 1rem 0;
+  }
 }
 
-h1,h2,h3 {
-    line-height: 1.2em;
+/* Main styling */
+main {
+  max-width: 50rem;
+  margin: 0 auto
 }
+
+h1, h2, h3 {
+  line-height: 1.2em;
+}
+
 a {
 	color: #07A;
-	/* wrap long text and urls */
-	white-space: pre; /* CSS 2.0 */
-	white-space: pre-wrap; /* CSS 2.1 */
-	white-space: pre-line; /* CSS 3.0 */
-	white-space: -pre-wrap; /* Opera 4-6 */
-	white-space: -o-pre-wrap; /* Opera 7 */
-	white-space: -moz-pre-wrap; /* Mozilla */
-	word-wrap: break-word; /* IE 5+ */
+  white-space: pre-line;
 }
 
-/* Styling for blog elements */
-.note {
-    border-left: 5px solid yellow;
-    background-color:#eeeeb4;
-}
-.alert {
-    border-left: 5px solid red;
-    background-color:#edd;
-}
-.dir_snippet {
-    padding: 3px 3px 3px 10px;
-    border-left: 5px solid #2196F3;
-    background-color:#dee;
-    font-family: Consolas, Monaco, monospace;
-    font-size: 0.875em;
-
-    border-bottom: #2196F3 1px dashed;
-}
-code {
-    font-family: Consolas, Monaco, monospace;
-    font-size: 0.8em;
-/*    background-color:#dee; */
-    background-color:#ddd;
-
-    /* padding: 0.5em; */
-    margin: 0;
-}
 pre {
-    background-color:#ddd;
-/*    background-color:#dee;*/
-/*    border-left: 5px solid #2196F3;*/
-    border-left: 5px solid #111;
-    display: block;
-    overflow-x: auto;
-    overflow-y: hidden;
-    line-height: 1.4em;
-    padding: 0.5em;
+  display: block;
+  overflow-x: auto;
+  line-height: 1rem;
 }
 
-/* Media queries */
-@media only screen and (max-width: 800px) {
-    body {
-        font-size: 1em;
-    }
-    nav {
-        width: 100%;
-        height: auto;
-        position: relative;
+code {
+  font-size: 1.125rem;
+  font-family: "Inconsolata", monospace;
+}
 
-        text-align: center;
-        padding-bottom: 1em;
-    }
-    .mm {
-        padding-bottom: 0.1em;
-        line-height: 1.2em;
-    }
-    nav a {
-        text-align: center;
-        padding: 0.3em;
-        font-size: 1.2em;
-    }
-    nav div.icons {
-        margin-top: 0.5em;
-        display: inline-block;
-    }
-    main {
-        margin-left: 0;
-        font-size: 1em;
-    }
-    code {
-        font-size: 0.875em;
-    }
+@media only screen and (max-width: 768px) {
+  code {
+    font-size: 0.875em;
+  }
 }

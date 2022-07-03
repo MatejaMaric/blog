@@ -4,4 +4,6 @@ description: "This is my personal blog where I occasionally post technology rela
 draft: false
 ---
 
+## Posts
+
 Here I occasionally post stuff. You can subscribe using <a href="index.xml">RSS</a>.

@@ -13,25 +13,22 @@
   <link href="/style.css" rel="stylesheet" type="text/css" />
   <title>{{ .Title }}</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Noto+Sans&family=Noto+Serif&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Noto+Sans&family=Noto+Serif&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <nav>
-    <div class="mm">Mateja Marić</div>
-    <a {{ if eq .RelPermalink "/" }} class="active" {{ end }} href="/">Home</a>
-    <a {{ if eq .RelPermalink "/blog/" }} class="active" {{ end }} href="/blog/">Blog</a>
-    <a {{ if eq .RelPermalink "/contact/" }} class="active" {{ end }} href="/contact/">Contact</a>
+    <div class="name">Mateja Marić</div>
     <div class="icons">
-      <a target="_blank" href="https://github.com/MatejaMaric" title="My GitHub Profile."><img
-          src="/assets/github.svg"></a>
-      <a target="_blank" href="https://git.matejamaric.com" title="My Personal Git Server."><img
-          src="/assets/git.svg"></a>
+      <a target="_blank" href="https://github.com/MatejaMaric" title="My GitHub Profile"><img src="/assets/github.svg"></a>
+      <a target="_blank" href="https://git.matejamaric.com" title="My Personal Git Server"><img src="/assets/git.svg"></a>
       <a href="mailto:mail@matejamaric.com" title="Email me!"><img src="/assets/envelope.svg"></a>
-      <!--<a href="#" title="My Twitter Profile."><img src="/assets/twitter.svg"></a>-->
-      <!--<a href="#" title="My Mastodon Profile."><img src="/assets/mastodon.svg"></a>-->
-      <!--<a href="#" title="My Linkedin Profile."><img src="/assets/linkedin.svg"></a>-->
+      <a target="_blank" href="https://linkedin.com/in/mateja-m-maric" title="My Linkedin Profile"><img src="/assets/linkedin.svg"></a>
+    </div>
+    <div class="links">
+      <a {{ if eq .RelPermalink "/" }} class="active" {{ end }} href="/">Home</a>
+      <a {{ if eq .RelPermalink "/blog/" }} class="active" {{ end }} href="/blog/">Blog</a>
+      <a {{ if eq .RelPermalink "/contact/" }} class="active" {{ end }} href="/contact/">Contact</a>
     </div>
   </nav>
   <main>
