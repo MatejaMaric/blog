@@ -1,10 +1,10 @@
 ---
 title: "Mateja Marić's Homepage"
-description: "I am Mateja Marić and this is my personal web site. I am a student from Belgrade, Serbia. I am primarily interested in Unix-like operating systems and free(as in freedom) software."
+description: "I am Mateja Marić and this is my personal web site. I am a software engineer from Belgrade, Serbia. I am primarily interested in Unix-like operating systems and free(as in freedom) software."
 draft: false
 ---
 
-I am Mateja Marić, a 20 years old student from Belgrade, Serbia.
+I am Mateja Marić, a 21 years old software engineer from Belgrade, Serbia.
 
 I was interested in computers ever since I laid my hands on one and I taught myself to program in C++ when I was a kid.
 Throughout the years I learned bunch of other programming languages and technologies.
