@@ -118,6 +118,7 @@ a {
 pre {
   display: block;
   overflow-x: auto;
+  overflow-y: hidden;
   line-height: 1rem;
 }
 
