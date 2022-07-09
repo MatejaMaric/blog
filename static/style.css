@@ -3,8 +3,8 @@
   --ff-sans-serif: "Noto Sans", Helvetica, sans-serif;
   --ff-serif: "Noto Serif", Garamond, serif;
 
-  --clr-fg: #fff;
-  --clr-bg: #444;
+  --clr-fg: #444;
+  --clr-bg: #fff;
 
   --fs-xl: 3.3rem;
   --fs-md: 1.4rem;
@@ -20,14 +20,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --clr-fg: #000;
-    --clr-bg: #eee;
+    --clr-fg: #ddd;
+    --clr-bg: #000;
   }
 }
 
 /* ------ Base styles ------ */
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -49,7 +51,7 @@ body {
 }
 
 .icon-fill {
-  fill: #444;
+  fill: var(--clr-fg);
 }
 
 /* ------ Nav styles ------ */
