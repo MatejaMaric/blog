@@ -1,14 +1,15 @@
 ---
 title: "DNS over TLS on Arch Linux"
 date: 2020-08-20
-lastmod: 2020-08-20
+lastmod: 2022-07-09
 description: "In this guide I will show you how to set up DNS over TLS on Arch Linux using systemd-resolved."
 slug: "dns-over-tls"
 draft: false
 ---
 
-Domain name resolution is not standardized, some application use NSS, some use D-Bus, others use stub resolvers.
-`systemd-resolved` handles all of them and comes with systemd that Arch Linux uses.
+In the GNU/Linux ecosystem there isn't really a standardized way for applications to resolve domain names.
+Some application use NSS, some use D-Bus, others use stub resolvers.
+`systemd-resolved` handles all of those methods and comes with systemd that Arch Linux uses.
 
 `systemd-resolved` configuration file is at `/etc/systemd/resolved.conf`, yours should look like this:
 
