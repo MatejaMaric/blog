@@ -1,15 +1,31 @@
-/* Fonts */
-.monospace {
-  font-family: "Inconsolata", monospace;
-}
-.sans-serif {
-  font-family: "Noto Sans", sans-serif;
-}
-.serif {
-  font-family: "Noto Serif", Georgia, Times, serif;
+:root {
+  --ff-monospace: "Inconsolata", "Courier New", monospace;
+  --ff-sans-serif: "Noto Sans", Helvetica, sans-serif;
+  --ff-serif: "Noto Serif", Garamond, serif;
+
+  --clr-fg: #fff;
+  --clr-bg: #444;
+
+  --fs-xl: 3.3rem;
+  --fs-md: 1.4rem;
+  --fs-sm: 1.125rem;
 }
 
-/* Base styles */
+@media only screen and (max-width: 768px) {
+  :root {
+    --fs-md: 1rem;
+    --fs-sm: 0.875rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clr-fg: #000;
+    --clr-bg: #eee;
+  }
+}
+
+/* ------ Base styles ------ */
 * {
   box-sizing: border-box;
 }
@@ -24,25 +40,19 @@ img {
 body {
   margin: 0;
   padding: 1rem;
-  font-size: 1.4rem;
+  font-size: var(--fs-md);
   line-height: 1.6em;
-  font-family: "Noto Serif", Georgia, Times, serif;
+  font-family: var(--ff-serif);
 
-  color: #444;
-  background-color: white;
+  color: var(--clr-fg);
+  background-color: var(--clr-bg);
 }
 
 .icon-fill {
   fill: #444;
 }
 
-@media only screen and (max-width: 768px) {
-  body {
-    font-size: 1rem;
-  }
-}
-
-/* Nav styles */
+/* ------ Nav styles ------ */
 nav {
   display: flex;
   align-items: center;
@@ -52,9 +62,9 @@ nav {
 
 /* Nav Text */
 nav .name {
-    font-size: 3.3rem;
-    line-height: 1em;
-    font-weight: bold;
+  font-size: var(--fs-xl);
+  line-height: 1em;
+  font-weight: bold;
 }
 
 /* Nav Icons */
@@ -77,20 +87,21 @@ nav .links {
 }
 
 nav .links a {
-    display: block;
-    color: #444;
-    text-decoration: none;
-    padding: 0 1rem;
+  display: block;
+  color: var(--clr-fg);
+  text-decoration: none;
+  padding: 0 1rem;
 }
 
 nav .links a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 nav .links a.active {
-    font-weight: bold;
+  font-weight: bold;
 }
 
+/* Nav Mobile */
 @media only screen and (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -105,7 +116,7 @@ nav .links a.active {
   }
 }
 
-/* Main styling */
+/* ------ Main styling ------ */
 main {
   max-width: 50rem;
   margin: 0 auto
@@ -128,12 +139,6 @@ pre {
 }
 
 code {
-  font-size: 1.125rem;
-  font-family: "Inconsolata", monospace;
-}
-
-@media only screen and (max-width: 768px) {
-  code {
-    font-size: 0.875em;
-  }
+  font-size: var(--fs-sm);
+  font-family: var(--ff-monospace);
 }
