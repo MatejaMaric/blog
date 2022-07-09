@@ -27,14 +27,14 @@ which git-http-backend uses to decide whether it should serve a repository over 
 First install necessary software. Package python-pygments is used by cgit for syntax highlighting. 
 **Check optional dependencies for cgit, you probably want to add all of them.**
 
-	pacman -Sy --needed gitolite cgit python-pygments
+    pacman -Sy --needed gitolite cgit python-pygments
 
 We will use [git-http-backend](https://git-scm.com/docs/git-http-backend) CGI program (it is part of the git package) to serve our repositories as read only over https. 
 Since CGI programs are ran by default Apache user (http on my system, check your `httpd.conf`) and our repositories will belong to the gitolite user, 
 we will add http user to gitolite group to later allow it to access repositories. 
 Cgit is also a CGI program that needs to be able to access repositories.
 
-	usermod -aG gitolite http
+    usermod -aG gitolite http
 
 You will also need to enable `mod_cgi`, `mod_alias` and `mod_env` in your Apache configuration, since we are using CGI programs.
 
@@ -43,7 +43,7 @@ You will also need to enable `mod_cgi`, `mod_alias` and `mod_env` in your Apache
 First you will need to copy your public ssh key to your server and rename it to `username.pub` .
 Then you will copy it to gitolite user's home directory. You can use this command: 
 
-	install -o gitolite -g gitolite -m 640 username.pub /var/lib/gitolite/
+    install -o gitolite -g gitolite -m 640 username.pub /var/lib/gitolite/
 
 Per default gitolite uses umask of 077, meaning that only gitolite user can read, write and execute gitolite files. 
 Since we want users in gitolite group to be able to read and execute gitolite files, we will need to set umask that gitolite uses to 027. 
@@ -56,37 +56,37 @@ We changed line 24 so that we could use gitweb keys in gitolite-admin repository
 
 This is how your `.gitolite.rc` should look like without comments, you should of course keep comments, they are useful.
 
-	%RC = (
-	    UMASK                   =>  0027,
-	    GIT_CONFIG_KEYS         =>  '.*',
-	    LOG_EXTRA               =>  1,
-	    ROLES => {
-		READERS                 =>  1,
-		WRITERS                 =>  1,
-	    },
-	    ENABLE => [
-		    'help',
-		    'desc',
-		    'info',
-		    'perms',
-		    'writable',
-		    'ssh-authkeys',
-		    'git-config',
-		    'daemon',
-		    'gitweb',
-	    ],
-	);
-	1;
+    %RC = (
+      UMASK            =>  0027,
+      GIT_CONFIG_KEYS  =>  '.*',
+      LOG_EXTRA        =>  1,
+      ROLES => {
+        READERS        =>  1,
+        WRITERS        =>  1,
+      },
+      ENABLE => [
+        'help',
+        'desc',
+        'info',
+        'perms',
+        'writable',
+        'ssh-authkeys',
+        'git-config',
+        'daemon',
+        'gitweb',
+      ],
+    );
+    1;   # Perl thing...
 
 You can copy it to gitolite user's home directory.
 
-	install -o gitolite -g gitolite -m 640 .gitolite.rc /var/lib/gitolite/
+    install -o gitolite -g gitolite -m 640 .gitolite.rc /var/lib/gitolite/
 
 Now we are done with configuring gitolite and we can actually set it up. Login to gitolite user and run gitolite setup.
 
-	sudo -iu gitolite
-	gitolite setup -pk username.pub
-	exit
+    sudo -iu gitolite
+    gitolite setup -pk username.pub
+    exit
 
 Now, we finished setting up gitolite. 
 You can use `git clone ssh://gitolite@git.your-domain.com:port/gitolite-admin` on your client machine to clone gitolite administrator repository. 
@@ -97,14 +97,14 @@ Cgit can only display repositories in `projects.list` file and git-http-backend 
  in other words, only if it's readable by everyone (`R = @all`).  
 Here you have an example `gitolite.conf`:
 
-	repo gitolite-admin
-		RW+     =   username
+    repo gitolite-admin
+      RW+     =   username
 
-	repo testing
-		RW+     =   username
-		R       =   @all
-		config gitweb.owner = Your Name
-		config gitweb.description = Simple testing repo
+    repo testing
+      RW+     =   username
+      R       =   @all
+      config gitweb.owner = Your Name
+      config gitweb.description = Simple testing repo
 
 You can do bunch of things in gitolite and they are explained in great detail on it's [website](https://gitolite.com/gitolite/basic-admin.html).
 
@@ -116,91 +116,59 @@ You can find explanation for each line in [cgitrc(5)](https://git.zx2c4.com/cgit
 Files (css, icons) that cgit uses can be found at `/usr/share/webapps/cgit/` .
 You can install this configuration file using `install -o root -g root -m 644 cgitrc /etc/` .
 
-	css=/cgit-css/cgit.css
-	logo=/cgit-css/cgit.png
-	favicon=/cgit-css/favicon.ico
+    css=/cgit-css/cgit.css
+    logo=/cgit-css/cgit.png
+    favicon=/cgit-css/favicon.ico
 
-	source-filter=/usr/lib/cgit/filters/syntax-highlighting.py
-	about-filter=/usr/lib/cgit/filters/about-formatting.sh
-	root-title=Yours repositories
-	root-desc=Here you can find all my public projects.
-	snapshots=tar.gz zip
+    source-filter=/usr/lib/cgit/filters/syntax-highlighting.py
+    about-filter=/usr/lib/cgit/filters/about-formatting.sh
+    root-title=Yours repositories
+    root-desc=Here you can find all my public projects.
+    snapshots=tar.gz zip
 
-	#settings
-	#cache-size=100
-	clone-url=https://git.your-domain.com/$CGIT_REPO_URL
+    # Settings
+    # cache-size=100
+    clone-url=https://git.your-domain.com/$CGIT_REPO_URL
 
-	#default
-	enable-index-owner=1
+    # Default
+    enable-index-owner=1
 
-	#not default
-	enable-index-links=1
-	remove-suffix=1
+    # Not default
+    enable-index-links=1
+    remove-suffix=1
 
-	#nice to have...
-	enable-blame=1
-	enable-commit-graph=1
-	enable-log-filecount=1
-	enable-log-linecount=1
-	branch-sort=age
+    # Nice to have...
+    enable-blame=1
+    enable-commit-graph=1
+    enable-log-filecount=1
+    enable-log-linecount=1
+    branch-sort=age
 
-	# if you do not want that webcrawler (like google) index your site
-	# robots=noindex, nofollow
+    # Enable if you don't want webcrawlers (like Google) to index your site
+    # robots=noindex, nofollow
 
-	# if cgit messes up links, use a virtual-root. For example, cgit.example.org/ has this value:
-	#virtual-root=/
+    # If cgit messes up links, use a virtual-root. For example, cgit.example.org/ has this value:
+    # virtual-root=/
 
-	# Allow using gitweb.* keys
-	enable-git-config=1
+    # Allow using gitweb.* keys
+    enable-git-config=1
 
-	##
-	## List of common mimetypes
-	##
-	mimetype.gif=image/gif
-	mimetype.html=text/html
-	mimetype.jpg=image/jpeg
-	mimetype.jpeg=image/jpeg
-	mimetype.pdf=application/pdf
-	mimetype.png=image/png
-	mimetype.svg=image/svg+xml
+    # List of common mimetypes
+    mimetype.gif=image/gif
+    mimetype.html=text/html
+    mimetype.jpg=image/jpeg
+    mimetype.jpeg=image/jpeg
+    mimetype.pdf=application/pdf
+    mimetype.png=image/png
+    mimetype.svg=image/svg+xml
 
-	##
-	## Search for these files in the root of the default branch of repositories
-	## for coming up with the about page:
-	##
-	readme=:README.md
-	readme=:readme.md
-	readme=:README.mkd
-	readme=:readme.mkd
-	readme=:README.rst
-	readme=:readme.rst
-	readme=:README.html
-	readme=:readme.html
-	readme=:README.htm
-	readme=:readme.htm
-	readme=:README.txt
-	readme=:readme.txt
-	readme=:README
-	readme=:readme
-	readme=:INSTALL.md
-	readme=:install.md
-	readme=:INSTALL.mkd
-	readme=:install.mkd
-	readme=:INSTALL.rst
-	readme=:install.rst
-	readme=:INSTALL.html
-	readme=:install.html
-	readme=:INSTALL.htm
-	readme=:install.htm
-	readme=:INSTALL.txt
-	readme=:install.txt
-	readme=:INSTALL
-	readme=:install
+    # Files that can be used for the about page (multiply can be specified)
+    readme=:README.md
+    readme=:readme.md
 
-
-	#gitolite repos
-	project-list=/var/lib/gitolite/projects.list
-	scan-path=/var/lib/gitolite/repositories
+    # Gitolite repos
+    project-list=/var/lib/gitolite/projects.list
+    scan-path=/var/lib/gitolite/repositories
 
 ## Configuring Apache
 
@@ -216,49 +184,49 @@ For more information check out [Apache documentation](http://httpd.apache.org/do
 
 You can just append this to your `httpd-vhosts-le-ssl.conf` file, you should of course edit it per your needs.
 
-	<IfModule mod_ssl.c>
-	<VirtualHost *:443>
-	#    ServerAdmin admin@your-domain.com
-	    DocumentRoot "/srv/http/git.your-domain.com"
-	    ServerName git.your-domain.com
+    <IfModule mod_ssl.c>
+    <VirtualHost *:443>
+        # ServerAdmin admin@your-domain.com
+        DocumentRoot "/srv/http/git.your-domain.com"
+        ServerName git.your-domain.com
 
-	    SetEnv GIT_PROJECT_ROOT /var/lib/gitolite/repositories/
+        SetEnv GIT_PROJECT_ROOT /var/lib/gitolite/repositories/
 
-	    ScriptAliasMatch \
-		"(?x)^/(.*/(HEAD | \
-			info/refs | \
-			objects/info/[^/]+ | \
-			git-upload-pack))$" \
-		    /usr/lib/git-core/git-http-backend/$1
+        ScriptAliasMatch \
+          "(?x)^/(.*/(HEAD | \
+          info/refs | \
+          objects/info/[^/]+ | \
+          git-upload-pack))$" \
+          /usr/lib/git-core/git-http-backend/$1
 
-	    Alias /cgit-css "/usr/share/webapps/cgit/"
-	    ScriptAlias / "/usr/lib/cgit/cgit.cgi/"
+        Alias /cgit-css "/usr/share/webapps/cgit/"
+        ScriptAlias / "/usr/lib/cgit/cgit.cgi/"
 
 
-	    <Files "git-http-backend">
-		  Require all granted
-	    </Files>
+        <Files "git-http-backend">
+        Require all granted
+        </Files>
 
-	    <Directory "/usr/share/webapps/cgit/">
-		  AllowOverride None
-		  Options None
-		  Require all granted
-	    </Directory>
+        <Directory "/usr/share/webapps/cgit/">
+        AllowOverride None
+        Options None
+        Require all granted
+        </Directory>
 
-	    <Directory "/usr/lib/cgit/">
-		  AllowOverride None
-		  Options ExecCGI FollowSymlinks
-		  Require all granted
-	    </Directory>
+        <Directory "/usr/lib/cgit/">
+        AllowOverride None
+        Options ExecCGI FollowSymlinks
+        Require all granted
+        </Directory>
 
-	    ErrorLog "/var/log/httpd/git.your-domain.com-error_log"
-	    CustomLog "/var/log/httpd/git.your-domain.com-access_log" common
+        ErrorLog "/var/log/httpd/git.your-domain.com-error_log"
+        CustomLog "/var/log/httpd/git.your-domain.com-access_log" common
 
-	SSLCertificateFile /etc/letsencrypt/live/git.your-domain.com/fullchain.pem
-	SSLCertificateKeyFile /etc/letsencrypt/live/git.your-domain.com/privkey.pem
-	Include /etc/letsencrypt/options-ssl-apache.conf
-	</VirtualHost>
-	</IfModule>
+    SSLCertificateFile /etc/letsencrypt/live/git.your-domain.com/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/git.your-domain.com/privkey.pem
+    Include /etc/letsencrypt/options-ssl-apache.conf
+    </VirtualHost>
+    </IfModule>
 
 Don't forget to restart Apache for changes to take effect!
 That's all, hope you like your new git server!
