@@ -186,45 +186,44 @@ You can just append this to your `httpd-vhosts-le-ssl.conf` file, you should of 
 
     <IfModule mod_ssl.c>
     <VirtualHost *:443>
-        # ServerAdmin admin@your-domain.com
-        DocumentRoot "/srv/http/git.your-domain.com"
-        ServerName git.your-domain.com
+      # ServerAdmin admin@your-domain.com
+      DocumentRoot "/srv/http/git.your-domain.com"
+      ServerName git.your-domain.com
 
-        SetEnv GIT_PROJECT_ROOT /var/lib/gitolite/repositories/
+      SetEnv GIT_PROJECT_ROOT /var/lib/gitolite/repositories/
 
-        ScriptAliasMatch \
-          "(?x)^/(.*/(HEAD | \
-          info/refs | \
-          objects/info/[^/]+ | \
-          git-upload-pack))$" \
-          /usr/lib/git-core/git-http-backend/$1
+      ScriptAliasMatch \
+        "(?x)^/(.*/(HEAD | \
+        info/refs | \
+        objects/info/[^/]+ | \
+        git-upload-pack))$" \
+        /usr/lib/git-core/git-http-backend/$1
 
-        Alias /cgit-css "/usr/share/webapps/cgit/"
-        ScriptAlias / "/usr/lib/cgit/cgit.cgi/"
+      Alias /cgit-css "/usr/share/webapps/cgit/"
+      ScriptAlias / "/usr/lib/cgit/cgit.cgi/"
 
-
-        <Files "git-http-backend">
+      <Files "git-http-backend">
         Require all granted
-        </Files>
+      </Files>
 
-        <Directory "/usr/share/webapps/cgit/">
+      <Directory "/usr/share/webapps/cgit/">
         AllowOverride None
         Options None
         Require all granted
-        </Directory>
+      </Directory>
 
-        <Directory "/usr/lib/cgit/">
+      <Directory "/usr/lib/cgit/">
         AllowOverride None
         Options ExecCGI FollowSymlinks
         Require all granted
-        </Directory>
+      </Directory>
 
-        ErrorLog "/var/log/httpd/git.your-domain.com-error_log"
-        CustomLog "/var/log/httpd/git.your-domain.com-access_log" common
+      ErrorLog "/var/log/httpd/git.your-domain.com-error_log"
+      CustomLog "/var/log/httpd/git.your-domain.com-access_log" common
 
-    SSLCertificateFile /etc/letsencrypt/live/git.your-domain.com/fullchain.pem
-    SSLCertificateKeyFile /etc/letsencrypt/live/git.your-domain.com/privkey.pem
-    Include /etc/letsencrypt/options-ssl-apache.conf
+      SSLCertificateFile /etc/letsencrypt/live/git.your-domain.com/fullchain.pem
+      SSLCertificateKeyFile /etc/letsencrypt/live/git.your-domain.com/privkey.pem
+      Include /etc/letsencrypt/options-ssl-apache.conf
     </VirtualHost>
     </IfModule>
 
