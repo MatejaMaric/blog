@@ -7,6 +7,7 @@
   --clr-fg: #444;
   --clr-bg: #fff;
   --clr-light-blue: #07A;
+  --clr-code-bg: #eee;
 
   --fs-xl: 3.3rem;
   --fs-md: 1.4rem;
@@ -41,6 +42,7 @@
   :root {
     --clr-fg: #ddd;
     --clr-bg: #000;
+    --clr-code-bg: #222;
   }
 }
 
@@ -156,10 +158,14 @@ pre {
   display: block;
   overflow-x: auto;
   overflow-y: hidden;
-  line-height: 1rem;
+  line-height: 1em;
+  background-color: var(--clr-code-bg);
+  padding: 0.2em;
 }
 
 code {
   font-size: var(--fs-sm);
   font-family: var(--ff-monospace);
+  background-color: var(--clr-code-bg);
+  padding: 0.2em;
 }
