@@ -12,8 +12,7 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgsFor.${system};
-        in {
-          ${pkgName} = pkgs.stdenv.mkDerivation {
+          drv = pkgs.stdenv.mkDerivation {
             name = pkgName;
             src = ./.;
             buildInputs = [ pkgs.hugo ];
@@ -25,6 +24,9 @@
               cp -r public $out/var/www/matejamaric.com
             '';
           };
+        in {
+          ${pkgName} = drv;
+          default = drv;
         }
       );
       devShells = forAllSystems (system:
@@ -36,6 +38,5 @@
           };
         }
       );
-      defaultPackage = forAllSystems (system: self.packages.${system}.${pkgName});
     };
 }
