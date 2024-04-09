@@ -22,7 +22,7 @@
     in
     {
       overlays.default = (final: prev: {
-        matejasblog = prev.callPackage drv {};
+        ${pkgName} = prev.callPackage drv {};
       });
       packages = forAllSystems (system:
         let
