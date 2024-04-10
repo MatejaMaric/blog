@@ -10,7 +10,7 @@
       drv = {stdenv, hugo, ...}: stdenv.mkDerivation {
         name = pkgName;
         src = ./.;
-        buildInputs = [ hugo ];
+        nativeBuildInputs = [ hugo ];
         buildPhase = ''
           hugo
         '';
