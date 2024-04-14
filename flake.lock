@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "matejascv": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1712775290,
+        "narHash": "sha256-SHNvzxFZ3aMeec209Oo9FIdO+vFyKOklFVOXjzWDG4s=",
+        "owner": "MatejaMaric",
+        "repo": "cv",
+        "rev": "edd79a133705536b62983372298f2dbcafac80b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MatejaMaric",
+        "repo": "cv",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1711668574,
@@ -17,6 +37,7 @@
     },
     "root": {
       "inputs": {
+        "matejascv": "matejascv",
         "nixpkgs": "nixpkgs"
       }
     }
