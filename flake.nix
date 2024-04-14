@@ -28,7 +28,10 @@
     in
     {
       overlays.default = (final: prev: {
-        ${pkgName} = prev.callPackage drv { inherit matejascv; };
+        ${pkgName} = prev.callPackage drv {
+          # matejascv = matejascv.packages.${prev.system}.matejascv; # same as below
+          inherit (matejascv.packages.${prev.system}) matejascv;
+        };
       });
       packages = forAllSystems (system: {
         ${pkgName} = nixpkgsFor.${system}.callPackage drv {};
