@@ -33,6 +33,18 @@
           inherit (matejascv.packages.${prev.system}) matejascv;
         };
       });
+      overlays.composed = nixpkgs.lib.composeExtensions
+        matejascv.overlays.default
+        (final: prev: {
+          ${pkgName} = prev.callPackage drv;
+        })
+      ;
+      overlays.composedMany = nixpkgs.lib.composeManyExtensions [
+        matejascv.overlays.default
+        (final: prev: {
+          ${pkgName} = prev.callPackage drv;
+        })
+      ];
       packages = forAllSystems (system: {
         ${pkgName} = nixpkgsFor.${system}.callPackage drv {};
         default = nixpkgsFor.${system}.callPackage drv {};
