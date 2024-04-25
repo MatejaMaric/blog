@@ -36,13 +36,13 @@
       overlays.composed = nixpkgs.lib.composeExtensions
         matejascv.overlays.default
         (final: prev: {
-          ${pkgName} = prev.callPackage drv;
+          ${pkgName} = final.callPackage drv;
         })
       ;
       overlays.composedMany = nixpkgs.lib.composeManyExtensions [
         matejascv.overlays.default
         (final: prev: {
-          ${pkgName} = prev.callPackage drv;
+          ${pkgName} = final.callPackage drv;
         })
       ];
       packages = forAllSystems (system: {
