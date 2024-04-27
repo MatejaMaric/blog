@@ -12,7 +12,7 @@
         inherit system;
         overlays = [ matejascv.overlays.default ];
       });
-      drv = {stdenv, hugo, matejascv}: stdenv.mkDerivation {
+      drv = ({stdenv, hugo, matejascv}: stdenv.mkDerivation {
         name = pkgName;
         src = ./.;
         nativeBuildInputs = [ hugo ];
@@ -24,13 +24,13 @@
           cp -r public $out/var/www/matejamaric.com
           cp ${matejascv} $out/var/www/matejamaric.com/cv.pdf
         '';
-      };
-      prevOverlay = final: prev: {
+      });
+      prevOverlay = (final: prev: {
         ${pkgName} = prev.callPackage drv;
-      };
-      finalOverlay = final: prev: {
+      });
+      finalOverlay = (final: prev: {
         ${pkgName} = final.callPackage drv;
-      };
+      });
     in
     {
       overlays.default = (final: prev: {
