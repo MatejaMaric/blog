@@ -25,36 +25,14 @@
           cp ${matejascv} $out/var/www/matejamaric.com/cv.pdf
         '';
       });
-      prevOverlay = (final: prev: {
-        ${pkgName} = prev.callPackage drv;
-      });
-      finalOverlay = (final: prev: {
-        ${pkgName} = final.callPackage drv;
-      });
     in
     {
-      overlays.default = (final: prev: {
-        ${pkgName} = prev.callPackage drv {
-          # matejascv = matejascv.packages.${prev.system}.matejascv; # same as below
-          inherit (matejascv.packages.${prev.system}) matejascv;
-        };
-      });
-      overlays.composedPrev = nixpkgs.lib.composeExtensions
+      overlays.default = nixpkgs.lib.composeExtensions
         matejascv.overlays.default
-        prevOverlay
+        (final: prev: {
+          ${pkgName} = prev.callPackage drv {};
+        })
       ;
-      overlays.composedManyPrev = nixpkgs.lib.composeManyExtensions [
-        matejascv.overlays.default
-        prevOverlay
-      ];
-      overlays.composedFinal = nixpkgs.lib.composeExtensions
-        matejascv.overlays.default
-        finalOverlay
-      ;
-      overlays.composedManyFinal = nixpkgs.lib.composeManyExtensions [
-        matejascv.overlays.default
-        finalOverlay
-      ];
       packages = forAllSystems (system: {
         ${pkgName} = nixpkgsFor.${system}.callPackage drv {};
         default = nixpkgsFor.${system}.callPackage drv {};
