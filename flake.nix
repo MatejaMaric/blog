@@ -27,12 +27,12 @@
       });
     in
     {
-      overlays.default = nixpkgs.lib.composeExtensions
+      overlays.default = nixpkgs.lib.composeManyExtensions [
         matejascv.overlays.default
         (final: prev: {
           ${pkgName} = prev.callPackage drv {};
         })
-      ;
+      ];
       packages = forAllSystems (system: {
         ${pkgName} = nixpkgsFor.${system}.callPackage drv {};
         default = nixpkgsFor.${system}.callPackage drv {};
