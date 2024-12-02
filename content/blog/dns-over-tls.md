@@ -32,10 +32,10 @@ You should enable the `systemd-resolved` service.
 ## NetworkManager
 
 Since you are probably using NetworkManager,
-you should tell it to use `systemd-resolved` by going to its configuration file (`/etc/NetworkManager/NetworkManger.conf`)
+you should tell it to use `systemd-resolved` by going to its configuration file (`/etc/NetworkManager/NetworkManager.conf`)
 and specifying `dns` property.
 
-This is how your `/etc/NetworkManager/NetworkManger.conf` should look like:
+This is how your `/etc/NetworkManager/NetworkManager.conf` should look like:
 
 	[main]
 	plugins=keyfile
